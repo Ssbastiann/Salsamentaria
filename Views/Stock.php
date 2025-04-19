@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,57 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inventario</title>
   <link rel="stylesheet" href="../CSS/styles.css">
-
-  <script>
-    const modal = document.getElementById('modal');
-    const openModalBtn = document.getElementById('openModalBtn');
-
-    openModalBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-
-    function cerrarModal() {
-      modal.style.display = 'none';
-      document.getElementById('nombreProducto').value = '';
-      document.getElementById('imagenProducto').value = '';
-      document.getElementById('stockProducto').value = '';
-    }
-
-    function agregarProducto() {
-      const nombre = document.getElementById('nombreProducto').value;
-      const imagen = document.getElementById('imagenProducto').value;
-      const stock = document.getElementById('stockProducto').value;
-
-      if (nombre && imagen && stock) {
-        const grid = document.getElementById('productGrid');
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${imagen}" alt="${nombre}">
-          <div>
-            <h2>${nombre}</h2>
-            <p>${stock} en stock</p>
-          </div>
-        `;
-        grid.appendChild(card);
-        cerrarModal();
-      } else {
-        alert('Por favor, complete todos los campos.');
-      }
-    }
-
-    function filtrarProductos() {
-      const filtro = document.getElementById('busqueda').value.toLowerCase();
-      const cards = document.querySelectorAll('.product-card');
-
-      cards.forEach(card => {
-        const nombre = card.querySelector('h2').innerText.toLowerCase();
-        card.style.display = nombre.includes(filtro) ? 'block' : 'none';
-      });
-    }
-  </script>
 </head>
-
 <body>
 
   <header>
@@ -404,3 +351,54 @@
       <button onclick="cerrarModal()">Cancelar</button>
     </div>
   </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const openModalBtn = document.getElementById('openModalBtn');
+
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    function cerrarModal() {
+      modal.style.display = 'none';
+      document.getElementById('nombreProducto').value = '';
+      document.getElementById('imagenProducto').value = '';
+      document.getElementById('stockProducto').value = '';
+    }
+
+    function agregarProducto() {
+      const nombre = document.getElementById('nombreProducto').value;
+      const imagen = document.getElementById('imagenProducto').value;
+      const stock = document.getElementById('stockProducto').value;
+
+      if (nombre && imagen && stock) {
+        const grid = document.getElementById('productGrid');
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${imagen}" alt="${nombre}">
+          <div>
+            <h2>${nombre}</h2>
+            <p>${stock} en stock</p>
+          </div>
+        `;
+        grid.appendChild(card);
+        cerrarModal();
+      } else {
+        alert('Por favor, complete todos los campos.');
+      }
+    }
+
+    function filtrarProductos() {
+      const filtro = document.getElementById('busqueda').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+
+      cards.forEach(card => {
+        const nombre = card.querySelector('h2').innerText.toLowerCase();
+        card.style.display = nombre.includes(filtro) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
