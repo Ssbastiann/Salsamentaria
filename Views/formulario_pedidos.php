@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Hoja de Pedidos</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../CSS/styles.css">
 </head>
+
 <body>
 
   <div class="contenedor">
